@@ -28,16 +28,10 @@ The JS Console application provides a playground to play with tokens issued by K
 2. Change in `src/index.html` (line 20) the location of `keycloak.js` script.
 The base URL to use is the value of `auth-server-url` in `src/keycloak.json`.
 
-3. Build the image with:
+3. Then run it with:
 
     ```
-    docker build -t demo-js-console .
-    ```
-
-4. Then run it with:
-
-    ```
-    docker run --name demo-js-console -p 8000:80 demo-js-console
+    docker-compose up
     ```
 
 
