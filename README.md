@@ -2,22 +2,9 @@
 
 This project contains a RH-SSO (Keycloak) client implementation for testing purposes.
 
-## Start JS Console application
-
-The JS Console application provides a playground to play with tokens issued by Keycloak.
-
-First build the image with:
-
-    docker build -t demo-js-console .
-
-Then run it with:
-
-    docker run --name demo-js-console -p 8000:80 demo-js-console
-
-
 ## Create a client on RH SSO Admin Console
 
-Now create a client for the JS console by clicking on `clients` then `create`.
+Create a client for the JS console by clicking on `clients` then `create`.
 
 Fill in the following values:
 
@@ -28,6 +15,30 @@ On the next form fill in the following values:
 
 * Valid Redirect URIs: `http://localhost:8000/*`
 * Web Origins: `http://localhost:8000`
+
+Go to the `Installation` tab, then download the `Keycloak OIDC JSON` configuration.
+
+
+## Start JS Console application
+
+The JS Console application provides a playground to play with tokens issued by Keycloak.
+
+1. First replace the file `src/keycloak.json` by the one downloaded in the previous section.
+
+2. Change in `src/index.html` (line 20) the location of `keycloak.js` script.
+The base URL to use is the value of `auth-server-url` in `src/keycloak.json`.
+
+3. Build the image with:
+
+    ```
+    docker build -t demo-js-console .
+    ```
+
+4. Then run it with:
+
+    ```
+    docker run --name demo-js-console -p 8000:80 demo-js-console
+    ```
 
 
 ## Require consent for the application
