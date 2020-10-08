@@ -55,7 +55,9 @@
 </div>
 
 <script>
-    var login = {}
+    var login = {
+        // scope: 'openid profile email offline_access'
+    }
 
     var events = []
 
@@ -110,9 +112,13 @@
         updateProfile();
     };
 
-    // Flow can be changed to 'implicit' or 'hybrid', but then client must enable implicit flow in admin console too 
+    // Flow can be changed to 'implicit' or 'hybrid', but then client must enable implicit flow in admin console too
     var initOptions = {
-        onLoad: 'login-required'
+        /*
+        ** Uncomment to activate auto login on page loading
+        ** Does not work properly with specific login options like scope
+        */
+        // onLoad: 'login-required'
     };
 
     kc.init(initOptions).success(function(authenticated) {

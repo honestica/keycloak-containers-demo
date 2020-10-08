@@ -1,5 +1,5 @@
 {
-  "realm" : "demo",
-  "auth-server-url" : "http://localhost:8080/auth",
-  "resource" : "js-console"
+  "realm": "lifen-dev",
+  "auth-server-url": "http://localhost:8080/auth",
+  "resource": "js-console"
 }
