@@ -35,11 +35,43 @@ The base URL to use is the value of `auth-server-url` in `src/keycloak.json`.
     ```
 
 
-## Require consent for the application
+## Change login behaviors
+
+You can edit some configuration in the file `src/index.html` and the RH SSO Admin Console in order to change some behaviors of the flow.
+
+### Login options
+
+You can customize some login options.
+Example: **requiring additionnal scopes**.
+
+Check [here](https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/oidc/javascript-adapter.adoc#loginoptions) the list of options.
+
+**How ?**
+
+Edit the `login` object in `src/index.html`. The object looks like :
+```
+var login = {
+    // scope: 'openid profile email offline_access'
+}
+```
+
+### Enable auto-login
+
+When accessing the web app, the login button has to be triggered in order to start login flow.
+Enabling the auto-login configuration force user to authenticate before accessing the page.
+
+**How ?**
+
+Uncomment `onLoad: 'login-required'` in the `initOptions` of the `src/index.html` page.
+
+
+### Require consent for the application
 
 So far we've assumed the JS Console is an internal trusted application, but what if it's
 a third party application? In that case we probably want the user to grant access to what the application wants to have
 access to.
+
+**How ?**
 
 Open the RH SSO Admin Console.
 
